@@ -1,4 +1,4 @@
-# Ubuntu Docker Base Image
+# Ubuntu Docker Base Image for AARCH64, ARMv7l, X86 and X64
 
 ## Inheritance and added packages
 - from scratch
