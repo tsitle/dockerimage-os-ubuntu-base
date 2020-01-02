@@ -11,10 +11,11 @@ ADD cache/ubuntu_${CF_UBUNTU_RELEASE}/ubuntu-${CF_UBUNTU_RELEASE}-${CF_UBUNTU_VE
 
 # set environment variables
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV HOME="/root" \
-LANGUAGE="en_US.UTF-8" \
-LANG="en_US.UTF-8" \
-TERM="xterm"
+ENV \
+	HOME="/root" \
+	LANGUAGE="en_US.UTF-8" \
+	LANG="en_US.UTF-8" \
+	TERM="xterm"
 
 # ------------------------------------------------------------------------------------------
 # taken from:
@@ -41,6 +42,8 @@ RUN \
 	&& echo 'docker' > /run/systemd/container
 CMD ["/bin/bash"]
 # ------------------------------------------------------------------------------------------
+
+ENV LC_ALL="en_US.UTF-8"
 
 RUN \
 	apt-get update \
