@@ -2,12 +2,13 @@ FROM scratch
 
 ARG CF_UBUNTU_RELEASE
 ARG CF_UBUNTU_VERSION
+ARG CF_UBUNTU_VERS_MINOR
 ARG CF_CPUARCH_DEB_DIST
 ENV CF_CPUARCH_DEB_DIST=${CF_CPUARCH_DEB_DIST}
 ARG CF_CPUARCH_DEB_ROOTFS
 
 # copy Ubuntu root-fs
-ADD cache/ubuntu_${CF_UBUNTU_RELEASE}/ubuntu-${CF_UBUNTU_RELEASE}-${CF_UBUNTU_VERSION}-core-cloudimg-${CF_CPUARCH_DEB_ROOTFS}-root.tgz /
+ADD cache/ubuntu_${CF_UBUNTU_RELEASE}/ubuntu-${CF_UBUNTU_RELEASE}-${CF_UBUNTU_VERSION}.${CF_UBUNTU_VERS_MINOR}-core-cloudimg-${CF_CPUARCH_DEB_ROOTFS}-root.tgz /
 
 # set environment variables
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -58,6 +59,7 @@ RUN \
 			less \
 			wget \
 			ca-certificates \
+			iproute2 \
 	|| exit 1; \
 	#
 	echo "**** generate locale ****"; \
