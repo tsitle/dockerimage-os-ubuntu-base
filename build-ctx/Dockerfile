@@ -60,6 +60,7 @@ RUN \
 			wget \
 			ca-certificates \
 			iproute2 \
+			procps \
 	|| exit 1; \
 	#
 	echo "**** generate locale ****"; \
